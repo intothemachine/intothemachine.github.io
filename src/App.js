@@ -8,10 +8,11 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h2>Hi thanks for visiting my Blog.</h2>
         </div>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          This blog is currently under construction please visit it back later.
+          Contact <a href="https://suryanarayanamurthy.herokuapp.com/">The Developer</a>, for further Info.
         </p>
       </div>
     );
