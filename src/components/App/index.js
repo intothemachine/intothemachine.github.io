@@ -1,6 +1,7 @@
 
 /* eslint-disable */ 
 import React, { PropTypes, Component } from 'react';
+import {Link} from 'react-router'
 import classnames from 'classnames';
 
 import logo from './logo.svg';
