@@ -1,3 +1,5 @@
+
+/* eslint-disable */ 
 import React, { PropTypes, Component } from 'react';
 import classnames from 'classnames';
 
@@ -19,11 +21,11 @@ class App extends Component {
         </div>
         <p className="App-intro">
           This blog is currently under construction please visit it back later.
-          Contact <a href="https://suryanarayanamurthy.herokuapp.com/">The Developer</a>, for further Info.
+          Contact <a href="./about">The Developer</a>, for further Info.
         </p>
       </div>
     );
   }
 }
-
+//https://suryanarayanamurthy.herokuapp.com/
 export default App;

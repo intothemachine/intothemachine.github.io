@@ -1,4 +1,5 @@
 // src/components/About/index.js
+/* eslint-disable */ 
 import React, { PropTypes, Component } from 'react';
 import classnames from 'classnames';
 
