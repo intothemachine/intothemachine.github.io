@@ -21,7 +21,7 @@ class App extends Component {
         </div>
         <p className="App-intro">
           This blog is currently under construction please visit it back later.
-          Contact <a href="./about">The Developer</a>, for further Info.
+          Contact <a href="/about">The Developer</a>, for further Info.
         </p>
       </div>
     );
