@@ -1,4 +1,4 @@
-const Posts = [{
+const PostsData = [{
       id:1,
       title: 'Random post1 for testing.',
       categorie: ['React.js', 'Node.js', 'express','Redux'],
@@ -20,4 +20,4 @@ const Posts = [{
       
 }
 ];
-export {Posts};
+export {PostsData};
