@@ -1,9 +1,9 @@
-// src/components/About/index.js
+// src/pages/about.js
 /* eslint-disable */ 
 import React, { PropTypes, Component } from 'react';
 import classnames from 'classnames';
 
-import './style.css';
+//import './style.css';
 
 export default class About extends Component {
   render() {

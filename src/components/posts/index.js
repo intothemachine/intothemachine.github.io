@@ -1,1 +1,0 @@
-// presentational logic for posts components come here.
