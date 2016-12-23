@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, Route } from 'react-router';
 
-import App from './components/App';
+import App from './components/Home';
 import About from './components/About';
 import NotFound from './components/NotFound';
 
