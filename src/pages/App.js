@@ -18,6 +18,7 @@ class App extends Component {
       <div className='App-Container'>
         <Header/>
         <Posts/>
+        <div>Hi this app is under contruction, Like all the wonderful in the world, it takes time. please check back again later... contact the developer behind this, for more <a href="https://suryanarayanamurthy.herokuapp.com/" target="_blank">info.</a></div>
       </div>
     );
   }
