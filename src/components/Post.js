@@ -1,11 +1,12 @@
-import React,{Component} from 'react'
+import React,{Component} from 'react';
+import {Link} from 'react-router';
 
 export default class Post extends Component{
 	
 	render(){
 		return(
 			<div className="row">
-		{JSON.stringify(this.props.postData)}
+				<Link to={'/postdetails/'+this.props.postData.id}>{this.props.postData.title}</Link>
 		</div>
 			);		
 	}
