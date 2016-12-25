@@ -1,20 +1,39 @@
-import {Component} from 'react';
+import React,{Component} from 'react';
+import {PostsData} from '../data';
 
-export default class NameForm extends qComponent {
+export default class PostForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {
+      title: '',
+      categorie: '',
+      content: ''
+    };
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChangeTitle = this.handleChangeTitle.bind(this);
+    this.handleChangeCategorie = this.handleChangeCategorie.bind(this);
+    this.handleChangeContent = this.handleChangeContent.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
+  handleChangeTitle(event) {
+    this.setState({title: event.target.value});
   }
 
+  handleChangeCategorie(event) {
+    this.setState({categorie: event.target.value});
+  }
+  
+  handleChangeContent(event) {
+    this.setState({content: event.target.value});
+  }
+
+
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
+    let newPost = this.state;
+    newPost.id = PostsData.length;
+    PostsData.push(newPost);
+    console.log(PostsData);
     event.preventDefault();
   }
 
@@ -22,8 +41,16 @@ export default class NameForm extends qComponent {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Name:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
+          Title:
+          <input type="text" value={this.state.title} onChange={this.handleChangeTitle} />
+        </label>
+          <label>
+          Categorie:
+          <input type="text" value={this.state.categorie} onChange={this.handleChangeCategorie} />
+        </label>
+                <label>
+          Content:
+          <input type="text" value={this.state.content} onChange={this.handleChangeContent} />
         </label>
         <input type="submit" value="Submit" />
       </form>
