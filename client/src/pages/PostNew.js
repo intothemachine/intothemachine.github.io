@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import Header from '../components/Header'
+import PostForm from '../components/PostForm';
 
 export default class PostNew extends Component{
 
@@ -7,7 +8,7 @@ export default class PostNew extends Component{
 		return(
 			<div>
 			<Header/>
-			<div>post New</div>
+			<PostForm />
 			</div>
 			);
 	}
