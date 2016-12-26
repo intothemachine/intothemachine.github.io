@@ -1,24 +1,29 @@
 import React,{Component} from 'react';
-import {PostsData} from '../data'
 import Post from './Post'
+import axios from 'axios'
 
 export default class Posts extends Component{
 
 
 
-	getPost(){
-		console.log(PostsData);
-		PostsData.map((post)=>
-			(<li>
-						<Post post={post}></Post>
-						</li>
-			)
-			);
+	getPosts(){
+		let PostsData;
+		axios.get('api/posts')
+  .then(function (response) {
+  	PostsData = response.data;
+  	console.log(PostsData);
+  	PostsData.map((postItem,index)=> (<Post key={postItem.id} postData={postItem} />))    		
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+	console.log(PostsData);
+
 	}
 
 	render(){
     return(<div>
-      {PostsData.map((postItem,index)=> (<Post key={postItem.id} postData={postItem} />))}
+      {this.getPosts()}
         </div>
       );
 

@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "Welcome to the machine... or as they say 'Deus ex machina'",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "babel-node server.js",
+    "client": "babel-node start-client.js",
+    "dev": "echo \"This command has been deprecated. Use 'npm start'\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -34,18 +37,14 @@
     "babel-core": "6.14.0",
     "babel-preset-es2015": "6.14.0",
     "babel-preset-stage-0": "6.5.0",
+    "body-parser": "^1.15.2",
     "express": "4.13.3",
     "fs": "0.0.2",
+    "mongodb": "^2.2.16",
+    "path": "^0.12.7",
     "sql.js": "^0.3.2"
-  },
-  "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "babel-node server.js",
-    "client": "babel-node start-client.js",
-    "dev": "echo \"This command has been deprecated. Use 'npm start'\" && exit 1"
   },
   "devDependencies": {
     "concurrently": "^3.1.0"
   }
-  //concurrently "npm run server" "cd client && npm start"
 }

@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {PostsData} from '../data';
+import axios from 'axios'
 
 export default class PostForm extends Component {
   constructor(props) {
@@ -31,9 +32,14 @@ export default class PostForm extends Component {
 
   handleSubmit(event) {
     let newPost = this.state;
-    newPost.id = PostsData.length;
-    PostsData.push(newPost);
-    console.log(PostsData);
+    console.log(newPost);
+    axios.post('api/posts', newPost)
+  .then( (response)=> {
+    console.log(response);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
     event.preventDefault();
   }
 

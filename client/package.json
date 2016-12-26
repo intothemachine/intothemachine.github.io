@@ -1,4 +1,4 @@
-  {
+{
   "name": "welcometothemachine",
   "version": "0.1.0",
   "private": true,
@@ -7,6 +7,7 @@
     "react-scripts": "0.8.3"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "classnames": "^2.2.5",
     "express": "^4.14.0",
     "morgan": "^1.7.0",
@@ -22,13 +23,13 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-  "extends": "./node_modules/react-scripts/config/eslint.js",
-  "env": {
-    "browser": true,
-    "node": true
-  },
-  "rules": {
-    "strict": 0
+    "extends": "./node_modules/react-scripts/config/eslint.js",
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "rules": {
+      "strict": 0
+    }
   }
-}
 }
