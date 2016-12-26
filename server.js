@@ -14,7 +14,7 @@ app.use(express.static('client/build'));
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
-
+console.log(process.env.MONGOLAB_URI);
 if(process.env.MONGOLAB_URI){
 mongodb.MongoClient.connect(process.env.MONGOLAB_URI,  (err, database) => {
   if (err) {
@@ -35,6 +35,7 @@ app.listen(app.get('port'), () => {
 });
 
 app.get('/api/posts', (req, res) => {
+	console.log("inside the get request");
 	  db.collection(POSTS_COLLECTION).find({}).toArray((err, docs)=> {
     if (err) {
       handleError(res, err.message, "Failed to get contacts.");
@@ -45,6 +46,7 @@ app.get('/api/posts', (req, res) => {
 });
 
 app.post("/api/posts", (req, res) =>{
+	console.log("inside the post request")
   const newPost = req.body;
   newPost.createDate = new Date();
 
