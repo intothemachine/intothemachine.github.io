@@ -1,15 +1,15 @@
 const express = require('express');
-var path = require("path");
+//var path = require("path");
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
 const app = express();
+app.use(bodyParser.json());
 
 let db;
 
 var POSTS_COLLECTION = "posts";
 
-app.use(express.static('client/build'));
 // Express only serves static assets in production
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
@@ -46,8 +46,9 @@ app.get('/api/posts', (req, res) => {
 });
 
 app.post("/api/posts", (req, res) =>{
-	console.log("inside the post request")
+	console.log("inside the post request");
   const newPost = req.body;
+  console.log(req);
   newPost.createDate = new Date();
 
   if (!(req.body.title)) {
