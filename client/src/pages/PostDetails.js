@@ -1,16 +1,36 @@
 import React,{Component} from 'react';
-import {PostsData} from '../data'
+import axios from 'axios';
+import Header from '../components/Header';
 
 export default class PostDetails extends Component{
+  constructor(props){
+    super(props);
+    this.state={
+      postDetail: {}
+    }
+  }
+  componentWillMount(){
+    this.fetchPost(this.props.params.id);
+  }
   fetchPost(id){
-    return(PostsData.find((postItem)=>(postItem.id == id)));
+    axios.get('/api/posts/'+id)
+    .then((response)=> {
+      this.setState({
+        postDetail: response.data
+      });
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
   render(){
     console.log("hi");
     return(
       <div>
-      <div>Post Details, where are you</div>
-      <div>{JSON.stringify(this.fetchPost(this.props.params.id))}</div>      
+      <Header showLinks="editDelPost"/>
+      <div></div>
+      <div>{JSON.stringify(this.state.postDetail)}</div>
       </div>
       );    
   }
