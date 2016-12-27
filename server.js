@@ -9,6 +9,8 @@ app.use(bodyParser.json());
 let db;
 
 var POSTS_COLLECTION = "posts";
+// TODO: remove this before commit.
+process.env.MONGOLAB_URI = "mongodb://suryanarayanamurthy:databasepassword123@ds033966.mlab.com:33966/machinedb"
 
 // Express only serves static assets in production
 if (process.env.NODE_ENV === 'production') {
@@ -39,7 +41,7 @@ app.listen(app.get('port'), () => {
  */
 
 app.get('/api/posts', (req, res) => {
-	console.log("inside the get request");
+	console.log("inside the get request, update");
 	  db.collection(POSTS_COLLECTION).find({}).toArray((err, docs)=> {
     if (err) {
       handleError(res, err.message, "Failed to get contacts.");
@@ -74,7 +76,8 @@ app.post("/api/posts", (req, res) =>{
  *    DELETE: deletes post by id
  */
 
-app.get("/posts/:id", function(req, res) {
+app.get("/api/posts/:id", function(req, res) {
+  console.log("inside the get posts id is :"+req.params.id);
   db.collection(POSTS_COLLECTION).findOne({ _id: new ObjectID(req.params.id) }, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to get Post");
@@ -84,7 +87,7 @@ app.get("/posts/:id", function(req, res) {
   });
 });
 
-app.put("/posts/:id", function(req, res) {
+app.put("/api/posts/:id", function(req, res) {
   var updateDoc = req.body;
   delete updateDoc._id;
 
@@ -97,7 +100,7 @@ app.put("/posts/:id", function(req, res) {
   });
 });
 
-app.delete("/posts/:id", function(req, res) {
+app.delete("/api/posts/:id", function(req, res) {
   db.collection(POSTS_COLLECTION).deleteOne({_id: new ObjectID(req.params.id)}, function(err, result) {
     if (err) {
       handleError(res, err.message, "Failed to delete Post");
