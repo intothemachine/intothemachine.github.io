@@ -1,14 +1,14 @@
 import React,{Component} from 'react';
 import Header from '../components/Header';
-import PostFormNew from '../components/PostFormNew';
+import PostFormEdit from '../components/PostFormEdit';
 
-export default class PostNew extends Component{
+export default class PostEdit extends Component{
 
 	render(){
 		return(
 			<div>
 			<Header showLinks=""/>
-			<PostFormNew />
+			<PostFormEdit postId= {this.props.params.id} />
 			</div>
 			);
 	}

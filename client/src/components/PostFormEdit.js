@@ -2,10 +2,11 @@ import React,{Component} from 'react';
 import {PostsData} from '../data';
 import axios from 'axios'
 
-export default class PostForm extends Component {
+export default class PostFormEdit extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      _id: '',
       title: '',
       categorie: '',
       content: ''
@@ -15,6 +16,9 @@ export default class PostForm extends Component {
     this.handleChangeCategorie = this.handleChangeCategorie.bind(this);
     this.handleChangeContent = this.handleChangeContent.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  componentWillMount(){
+    this.getPostContent(this.props.postId);
   }
 
   handleChangeTitle(event) {
@@ -29,11 +33,27 @@ export default class PostForm extends Component {
     this.setState({content: event.target.value});
   }
 
+  getPostContent(id){
+    axios.get('/api/posts/'+id)
+    .then((response)=> {
+      const newPost = response.data;
+       this.setState({
+      _id: newPost._id,
+      title: newPost.title,
+      categorie: newPost.categorie,
+      content: newPost.content,
+    });
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
 
   handleSubmit(event) {
-    let newPost = this.state;
-    console.log(newPost);
-    axios.post('api/posts', newPost)
+    const newPost = this.state;
+    console.log("new post : "+newPost);
+    axios.put('/api/posts/'+newPost._id,newPost)
   .then( (response)=> {
     console.log(response);
   })
