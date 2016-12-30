@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import axios from 'axios';
 import Header from '../components/Header';
-import {browserHistory} from 'react-router';
+import {browserHistory,Link} from 'react-router';
 
 export default class PostDetails extends Component{
   constructor(props){
@@ -33,8 +33,7 @@ export default class PostDetails extends Component{
         )
       .catch((error)=> {
         console.log(error);}
-        );
-      
+        );     
   }  
   render(){
     console.log("hi");
@@ -43,7 +42,8 @@ export default class PostDetails extends Component{
         <Header showLinks="editPost"  postId={this.state.postDetail._id}/>
         <div>
           <div>{JSON.stringify(this.state.postDetail)}</div>
-          <button onClick={this.deletePost(this.props.params.id)}>delete</button>
+        {/* the '()=>{this.func()}' is imp bcos if we dont use '()=>' before the func, the function gets executed on page load, and every item u select gets delteted when viewed.*/}
+          <button onClick={()=>{this.deletePost(this.props.params.id)}}><Link to="/">delete</Link></button>
         </div>
       </div>
       );    
