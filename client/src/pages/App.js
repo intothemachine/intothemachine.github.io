@@ -15,10 +15,12 @@ class App extends Component {
 
   render() {
     return (
-      <div className='App-Container'>
+      <div>
         <Header showLinks="newPost"/>
+        <div>
         <Posts/>
         <div>Hi this app is under contruction, Like all the wonders of the world, it takes time. please check back again later... contact the developer behind this, for more <a href="https://suryanarayanamurthy.herokuapp.com/" target="_blank">info.</a></div>
+        </div>
       </div>
     );
   }

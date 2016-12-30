@@ -40,10 +40,11 @@ export default class PostDetails extends Component{
     console.log("hi");
     return(
       <div>
-      <Header showLinks="editDelPost"  postId={this.state.postDetail._id}/>
-      <div></div>
-      <div>{JSON.stringify(this.state.postDetail)}</div>
-      <button onClick={this.deletePost(this.props.params.id)}>delete</button>
+        <Header showLinks="editPost"  postId={this.state.postDetail._id}/>
+        <div>
+          <div>{JSON.stringify(this.state.postDetail)}</div>
+          <button onClick={this.deletePost(this.props.params.id)}>delete</button>
+        </div>
       </div>
       );    
   }

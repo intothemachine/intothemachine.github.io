@@ -7,8 +7,10 @@ export default class PostEdit extends Component{
 	render(){
 		return(
 			<div>
-			<Header showLinks=""/>
-			<PostFormEdit postId= {this.props.params.id} />
+				<Header showLinks="newPost"/>
+				<div>
+					<PostFormEdit postId= {this.props.params.id} />
+				</div>
 			</div>
 			);
 	}
